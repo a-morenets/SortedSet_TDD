@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Comparator;
+import java.util.NoSuchElementException;
 
 import static org.junit.Assert.*;
 
@@ -36,5 +37,10 @@ public class SortedSetTest {
     @Test
     public void oneArgConstructor_getComparator_NotNull() {
         assertNotNull(setWithComparator.getComparator());
+    }
+
+    @Test (expected = NoSuchElementException.class)
+    public void emptySet_first_throwsNoSuchElementException() {
+        setWithoutComparator.first();
     }
 }

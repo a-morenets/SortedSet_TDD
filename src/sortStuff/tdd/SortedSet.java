@@ -33,7 +33,7 @@ public class SortedSet<E> implements sortStuff.SortedSet<E> {
 
     @Override
     public E first() throws NoSuchElementException {
-        return null;
+        throw new NoSuchElementException();
     }
 
     @Override
