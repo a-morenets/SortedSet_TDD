@@ -5,11 +5,8 @@ import java.util.Comparator;
 import java.util.NoSuchElementException;
 
 public class SortedSet<E> implements sortStuff.SortedSet<E> {
-    private int size;
-    private E[] data;
 
-    public SortedSet() {
-        data = (E[]) new Object[10];
+    SortedSet() {
     }
 
     @Override
@@ -19,7 +16,7 @@ public class SortedSet<E> implements sortStuff.SortedSet<E> {
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return true;
     }
 
     @Override
