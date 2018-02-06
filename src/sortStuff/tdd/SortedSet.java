@@ -17,17 +17,17 @@ public class SortedSet<E> implements sortStuff.SortedSet<E> {
     }
 
     @Override
+    public Comparator getComparator() {
+        return null;
+    }
+
+    @Override
     public E first() throws NoSuchElementException {
         return null;
     }
 
     @Override
     public E last() throws NoSuchElementException {
-        return null;
-    }
-
-    @Override
-    public Comparator getComparator() {
         return null;
     }
 

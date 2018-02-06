@@ -23,4 +23,9 @@ public class SortedSetTest {
     public void emptySet_size_zero() {
         assertEquals(0, set.size());
     }
+
+    @Test
+    public void noArgConstructor_getComparator_Null() {
+        assertNull(set.getComparator());
+    }
 }
