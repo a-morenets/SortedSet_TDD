@@ -3,29 +3,38 @@ package sortStuff.tdd;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Comparator;
+
 import static org.junit.Assert.*;
 
 public class SortedSetTest {
-
-    private SortedSet set;
+    private SortedSet<String> setWithoutComparator;
+    private SortedSet<String> setWithComparator;
 
     @Before
     public void setUp() {
-        set = new SortedSet();
+        setWithoutComparator = new SortedSet<>();
+        Comparator<String> alwaysEqualComparator = (o1, o2) -> 0;
+        setWithComparator = new SortedSet<>(alwaysEqualComparator);
     }
 
     @Test
     public void emptySet_isEmpty_True() {
-        assertTrue(set.isEmpty());
+        assertTrue(setWithoutComparator.isEmpty());
     }
 
     @Test
     public void emptySet_size_zero() {
-        assertEquals(0, set.size());
+        assertEquals(0, setWithoutComparator.size());
     }
 
     @Test
     public void noArgConstructor_getComparator_Null() {
-        assertNull(set.getComparator());
+        assertNull(setWithoutComparator.getComparator());
+    }
+
+    @Test
+    public void oneArgConstructor_getComparator_NotNull() {
+        assertNotNull(setWithComparator.getComparator());
     }
 }

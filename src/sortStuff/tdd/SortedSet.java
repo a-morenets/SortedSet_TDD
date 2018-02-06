@@ -6,6 +6,16 @@ import java.util.NoSuchElementException;
 
 public class SortedSet<E> implements sortStuff.SortedSet<E> {
 
+    private Comparator<E> comparator;
+
+    SortedSet() {
+        // empty
+    }
+
+    SortedSet(Comparator<E> comparator) {
+        this.comparator = comparator;
+    }
+
     @Override
     public boolean isEmpty() {
         return true;
@@ -18,7 +28,7 @@ public class SortedSet<E> implements sortStuff.SortedSet<E> {
 
     @Override
     public Comparator getComparator() {
-        return null;
+        return comparator;
     }
 
     @Override
