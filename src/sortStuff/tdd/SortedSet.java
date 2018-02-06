@@ -6,17 +6,14 @@ import java.util.NoSuchElementException;
 
 public class SortedSet<E> implements sortStuff.SortedSet<E> {
 
-    SortedSet() {
+    @Override
+    public boolean isEmpty() {
+        return true;
     }
 
     @Override
     public int size() {
         return 0;
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return true;
     }
 
     @Override
