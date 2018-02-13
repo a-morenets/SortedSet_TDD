@@ -50,21 +50,28 @@ public class SortedSetTest {
     }
 
     @Test
-    public void emptySet_addOneElement_notEmpty() {
+    public void emptySet_addOneItem_notEmpty() {
         setWithoutComparator.add("F");
         assertFalse(setWithoutComparator.isEmpty());
     }
 
     @Test
-    public void emptySet_AddOneElement_size_1() {
+    public void emptySet_AddOneItem_size_1() {
         setWithoutComparator.add("F");
         assertEquals(1, setWithoutComparator.size());
     }
 
     @Test
-    public void emptySet_AddOneElement_first_addedElement() {
-        final String addedElement = "F";
-        setWithoutComparator.add(addedElement);
-        assertEquals(addedElement, setWithoutComparator.first());
+    public void emptySet_AddOneItem_first_addedElement() {
+        final String addedItem = "F";
+        setWithoutComparator.add(addedItem);
+        assertEquals(addedItem, setWithoutComparator.first());
+    }
+
+    @Test
+    public void emptySet_AddOneItem_last_addedElement() {
+        final String addedItem = "L";
+        setWithoutComparator.add(addedItem);
+        assertEquals(addedItem, setWithoutComparator.last());
     }
 }
