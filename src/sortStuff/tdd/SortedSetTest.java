@@ -90,4 +90,10 @@ public class SortedSetTest {
     public void emptySet_AddAnItem_True() {
         assertTrue(setWithoutComparator.add(ITEM_F));
     }
+
+    @Test
+    public void set_AddTwoEqualItems_False() {
+        setWithoutComparator.add(ITEM_F);
+        assertFalse(setWithoutComparator.add(ITEM_F));
+    }
 }

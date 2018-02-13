@@ -49,9 +49,12 @@ public class SortedSet<E> implements sortStuff.SortedSet<E> {
 
     @Override
     public boolean add(E element) {
+        if (element.equals(item)) {
+            return false;
+        }
+
         item = element;
         size++;
-
         return true;
     }
 
