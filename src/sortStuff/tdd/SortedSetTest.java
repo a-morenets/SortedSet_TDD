@@ -85,4 +85,9 @@ public class SortedSetTest {
         setWithoutComparator.add(ITEM_LAST);
         assertEquals(2, setWithoutComparator.size());
     }
+
+    @Test
+    public void emptySet_AddAnItem_True() {
+        assertTrue(setWithoutComparator.add(ITEM_F));
+    }
 }

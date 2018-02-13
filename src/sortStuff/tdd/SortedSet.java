@@ -51,7 +51,8 @@ public class SortedSet<E> implements sortStuff.SortedSet<E> {
     public boolean add(E element) {
         item = element;
         size++;
-        return false;
+
+        return true;
     }
 
     @Override
