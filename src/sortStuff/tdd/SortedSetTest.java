@@ -54,4 +54,10 @@ public class SortedSetTest {
         setWithoutComparator.add("F");
         assertFalse(setWithoutComparator.isEmpty());
     }
+
+    @Test
+    public void emptySetAddOneElement_size_one() {
+        setWithoutComparator.add("F");
+        assertEquals(1, setWithoutComparator.size());
+    }
 }
