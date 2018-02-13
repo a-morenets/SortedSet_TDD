@@ -25,7 +25,7 @@ public class SortedSetTest {
     }
 
     @Test
-    public void emptySet_size_zero() {
+    public void emptySet_size_0() {
         assertEquals(0, setWithoutComparator.size());
     }
 
@@ -40,12 +40,12 @@ public class SortedSetTest {
     }
 
     @Test (expected = NoSuchElementException.class)
-    public void emptySet_first_throwsNoSuchElementException() {
+    public void emptySet_first_throwNoSuchElementException() {
         setWithoutComparator.first();
     }
 
     @Test (expected = NoSuchElementException.class)
-    public void emptySet_last_throwsNoSuchElementException() {
+    public void emptySet_last_throwNoSuchElementException() {
         setWithoutComparator.last();
     }
 
@@ -56,8 +56,15 @@ public class SortedSetTest {
     }
 
     @Test
-    public void emptySetAddOneElement_size_one() {
+    public void emptySet_AddOneElement_size_1() {
         setWithoutComparator.add("F");
         assertEquals(1, setWithoutComparator.size());
+    }
+
+    @Test
+    public void emptySet_AddOneElement_first_addedElement() {
+        final String addedElement = "F";
+        setWithoutComparator.add(addedElement);
+        assertEquals(addedElement, setWithoutComparator.first());
     }
 }

@@ -8,6 +8,7 @@ public class SortedSet<E> implements sortStuff.SortedSet<E> {
 
     private Comparator<E> comparator;
     private int size;
+    private E item;
 
     SortedSet() {
         // empty
@@ -34,7 +35,9 @@ public class SortedSet<E> implements sortStuff.SortedSet<E> {
 
     @Override
     public E first() throws NoSuchElementException {
-        throw new NoSuchElementException();
+        if (size == 0)
+            throw new NoSuchElementException();
+        return item;
     }
 
     @Override
@@ -44,6 +47,7 @@ public class SortedSet<E> implements sortStuff.SortedSet<E> {
 
     @Override
     public boolean add(E element) {
+        item = element;
         size++;
         return false;
     }
