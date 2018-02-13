@@ -55,9 +55,40 @@ public class SortedSet<E> implements sortStuff.SortedSet<E> {
             }
         }
 
-        data[size] = item;
+        int index = -(binarySearch(item) + 1);
+        if (index < 0) {
+            return false;
+        }
+
+        System.arraycopy(data, index, data, index + 1, size - index);
+        data[index] = item;
         size++;
         return true;
+    }
+
+    private int binarySearch(E item) {
+        int low = 0;
+        int high = size - 1;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            E midVal = data[mid];
+
+            int compareResult;
+            if (comparator == null) {
+                compareResult = ((Comparable<E>) midVal).compareTo((E) item);
+            } else {
+                compareResult = comparator.compare(midVal, item);
+            }
+
+            if (compareResult < 0)
+                low = mid + 1;
+            else if (compareResult > 0)
+                high = mid - 1;
+            else
+                return mid; // element found
+        }
+        return -(low + 1);  // element not found.
     }
 
     @Override

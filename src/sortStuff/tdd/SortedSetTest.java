@@ -103,4 +103,11 @@ public class SortedSetTest {
         setWithoutComparator.add(ITEM_LAST);
         assertEquals(ITEM_FIRST, setWithoutComparator.first());
     }
+
+    @Test
+    public void emptySet_addZthenA_first_A() {
+        setWithoutComparator.add(ITEM_LAST);
+        setWithoutComparator.add(ITEM_FIRST);
+        assertEquals(ITEM_FIRST, setWithoutComparator.first());
+    }
 }
