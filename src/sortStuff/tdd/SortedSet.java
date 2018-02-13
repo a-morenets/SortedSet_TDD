@@ -8,10 +8,10 @@ public class SortedSet<E> implements sortStuff.SortedSet<E> {
 
     private Comparator<E> comparator;
     private int size;
-    private E item;
+    private E[] data;
 
     SortedSet() {
-        // empty
+        data = (E[]) new Object[2];
     }
 
     SortedSet(Comparator<E> comparator) {
@@ -37,23 +37,25 @@ public class SortedSet<E> implements sortStuff.SortedSet<E> {
     public E first() throws NoSuchElementException {
         if (size == 0)
             throw new NoSuchElementException();
-        return item;
+        return data[0];
     }
 
     @Override
     public E last() throws NoSuchElementException {
         if (size == 0)
             throw new NoSuchElementException();
-        return item;
+        return data[size - 1];
     }
 
     @Override
-    public boolean add(E element) {
-        if (element.equals(item)) {
-            return false;
+    public boolean add(E item) {
+        for (int i = 0; i < size; i++) {
+            if (data[i].equals(item)) {
+                return false;
+            }
         }
 
-        item = element;
+        data[size] = item;
         size++;
         return true;
     }

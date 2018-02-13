@@ -80,20 +80,27 @@ public class SortedSetTest {
     }
 
     @Test
-    public void emptySet_AddTwoItems_size_2() {
-        setWithoutComparator.add(ITEM_FIRST);
-        setWithoutComparator.add(ITEM_LAST);
+    public void emptySet_addTwoNonEqualItems_size_2() {
+        setWithoutComparator.add(ITEM_F);
+        setWithoutComparator.add(ITEM_L);
         assertEquals(2, setWithoutComparator.size());
     }
 
     @Test
-    public void emptySet_AddAnItem_True() {
+    public void emptySet_addAnItem_True() {
         assertTrue(setWithoutComparator.add(ITEM_F));
     }
 
     @Test
-    public void set_AddTwoEqualItems_False() {
+    public void set_addTwoEqualItems_False() {
         setWithoutComparator.add(ITEM_F);
         assertFalse(setWithoutComparator.add(ITEM_F));
+    }
+
+    @Test
+    public void emptySet_addAthenZ_first_A() {
+        setWithoutComparator.add(ITEM_FIRST);
+        setWithoutComparator.add(ITEM_LAST);
+        assertEquals(ITEM_FIRST, setWithoutComparator.first());
     }
 }
