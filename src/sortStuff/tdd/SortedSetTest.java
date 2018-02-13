@@ -43,4 +43,9 @@ public class SortedSetTest {
     public void emptySet_first_throwsNoSuchElementException() {
         setWithoutComparator.first();
     }
+
+    @Test (expected = NoSuchElementException.class)
+    public void emptySet_last_throwsNoSuchElementException() {
+        setWithoutComparator.last();
+    }
 }

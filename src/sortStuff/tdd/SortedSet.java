@@ -38,7 +38,7 @@ public class SortedSet<E> implements sortStuff.SortedSet<E> {
 
     @Override
     public E last() throws NoSuchElementException {
-        return null;
+        throw new NoSuchElementException();
     }
 
     @Override
