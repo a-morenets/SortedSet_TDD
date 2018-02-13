@@ -48,4 +48,10 @@ public class SortedSetTest {
     public void emptySet_last_throwsNoSuchElementException() {
         setWithoutComparator.last();
     }
+
+    @Test
+    public void emptySet_addOneElement_notEmpty() {
+        setWithoutComparator.add("F");
+        assertFalse(setWithoutComparator.isEmpty());
+    }
 }
