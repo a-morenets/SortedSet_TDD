@@ -9,6 +9,10 @@ import java.util.NoSuchElementException;
 import static org.junit.Assert.*;
 
 public class SortedSetTest {
+    private static final String ITEM_FIRST = "A";
+    private static final String ITEM_LAST = "Z";
+    private static final String ITEM_F = "F";
+    private static final String ITEM_L = "L";
     private SortedSet<String> setWithoutComparator;
     private SortedSet<String> setWithComparator;
 
@@ -51,27 +55,34 @@ public class SortedSetTest {
 
     @Test
     public void emptySet_addOneItem_notEmpty() {
-        setWithoutComparator.add("F");
+        setWithoutComparator.add(ITEM_F);
         assertFalse(setWithoutComparator.isEmpty());
     }
 
     @Test
-    public void emptySet_AddOneItem_size_1() {
-        setWithoutComparator.add("F");
+    public void emptySet_addOneItem_size_1() {
+        setWithoutComparator.add(ITEM_F);
         assertEquals(1, setWithoutComparator.size());
     }
 
     @Test
-    public void emptySet_AddOneItem_first_addedElement() {
-        final String addedItem = "F";
+    public void emptySet_addOneItem_first_addedElement() {
+        final String addedItem = ITEM_F;
         setWithoutComparator.add(addedItem);
         assertEquals(addedItem, setWithoutComparator.first());
     }
 
     @Test
-    public void emptySet_AddOneItem_last_addedElement() {
-        final String addedItem = "L";
+    public void emptySet_addOneItem_last_addedElement() {
+        final String addedItem = ITEM_L;
         setWithoutComparator.add(addedItem);
         assertEquals(addedItem, setWithoutComparator.last());
+    }
+
+    @Test
+    public void emptySet_AddTwoItems_size_2() {
+        setWithoutComparator.add(ITEM_FIRST);
+        setWithoutComparator.add(ITEM_LAST);
+        assertEquals(2, setWithoutComparator.size());
     }
 }
